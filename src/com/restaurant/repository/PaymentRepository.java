@@ -1,0 +1,28 @@
+package com.restaurant.repository;
+
+import com.restaurant.model.Payment;
+import java.util.ArrayList;
+import java.util.List;
+
+public class PaymentRepository {
+
+    private final List<Payment> payments = new ArrayList<>();
+
+    public void save(Payment payment) {
+        payments.add(payment);
+    }
+
+    public List<Payment> findAll() {
+        return new ArrayList<>(payments);
+    }
+
+    public Payment findById(int id) {
+        for (Payment payment : payments) {
+            if (payment.getId() == id) {
+                return payment;
+            }
+        }
+
+        return null;
+    }
+}
